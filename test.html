@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Products</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-white">
+
+    <button onclick="openModal()" class="px-4 py-2 bg-orange-400 text-white rounded">
+    Browse Categories
+    </button>
+
+
+    <div id="categoryModal" class="absolute inset-0 hidden items-start justify-center z-50">
+        <div class="absolute inset-0 "></div>
+        <div id="modalContent" class="relative inline-block">
+
+        <!-- MAIN MENU -->
+        <div class="w-60 bg-white rounded shadow-lg border relative">
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            Computer & Laptop
+            </div>
+
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            Computer accessories
+            </div>
+
+            <div class=" group space-x-2">
+            <div 
+                onclick="toggleMenu(this)"
+                class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+
+                <div class="flex items-center gap-2">
+                SmartPhone
+                </div>
+
+                <!-- ARROW -->
+                <span class="arrow transition-transform duration-300">
+                ▶
+                </span>
+            </div>
+
+                <div class="submenu absolute left-0 md:left-full top-0 md:top-0 
+                            w-full md:w-[800px] bg-white rounded shadow-[0px_8px_40px_rgba(0,0,0,0.12)] border
+                            opacity-0 invisible translate-y-2 md:translate-y-0 md:translate-x-4
+                            md:group-hover:opacity-100 md:group-hover:visible md:group-hover:translate-x-0
+                            transition-all duration-300 ease-out z-50">
+
+                <nav class="p-5 flex flex-col md:flex-row gap-5">
+
+                    <!-- LEFT: BRANDS -->
+                    <ul class="w-40 flex flex-col">
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">All</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm bg-gray-100 font-medium text-zinc-900">iPhone</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Samsung</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Realme</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Xiaomi</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Oppo</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Vivo</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">OnePlus</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Huawei</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Infinix</button></li>
+                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Tecno</button></li>
+                    </ul>
+
+                    <!-- MIDDLE: FEATURED -->
+                    <div class="flex flex-col gap-4">
+                    <h3 class="text-base font-semibold text-zinc-900">FEATURED PHONES</h3>
+
+                    <!-- PRODUCT -->
+                    <div class="flex items-center gap-3 p-3 border rounded hover:shadow-sm cursor-pointer">
+                        <img class="w-20 h-20" src="images/Image-28.png" />
+                        <div>
+                        <p class="text-sm text-zinc-900">Samsung Galaxy S21 5G</p>
+                        <span class="text-green-600 text-sm font-semibold">₦700,300</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 p-3 border rounded hover:shadow-sm cursor-pointer">
+                        <img class="w-20 h-20" src="images/Image-33.png" />
+                        <div>
+                        <p class="text-sm text-zinc-900">Galaxy 12 Mini 512GB</p>
+                        <span class="text-green-600 text-sm font-semibold">₦700,300</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 p-3 border rounded hover:shadow-sm cursor-pointer">
+                        <img class="w-20 h-20" src="images/Image-43.png" />
+                        <div>
+                        <p class="text-sm text-zinc-900">Sony DSCHX8 Camera</p>
+                        <span class="text-green-600 text-sm font-semibold">₦700,300</span>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- RIGHT: PROMO -->
+                    <aside class="bg-amber-200 rounded p-6 flex flex-col items-center text-center gap-4">
+                    <img class="w-40" src="images/Image-13.png" />
+
+                    <h4 class="text-2xl font-semibold">21% Discount</h4>
+                    <p class="text-sm text-gray-600">
+                        Escape the noise, It’s time to hear the magic with Xiaomi Earbuds.
+                    </p>
+
+                    <div class="flex items-center gap-2 text-sm">
+                        <span class="text-gray-600">Starting price:</span>
+                        <span class="bg-white px-3 py-1 rounded font-semibold">₦136,921.95</span>
+                    </div>
+
+                    <button class="w-full bg-orange-400 text-white py-2 rounded text-sm font-bold uppercase">
+                        Shop now →
+                    </button>
+                    </aside>
+
+                </nav>
+                </div>
+            </div>
+
+            
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            Mobile Accessories
+            </div>
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            Gaming Console
+            </div>
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            Camera & Photo
+            </div>
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            TV & Home Appliances
+            </div>
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            Watch & Accessories
+            </div>
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            GPS & Navigation
+            </div>
+            
+            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+            Wearable Technology
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+
+<script>
+  const modal = document.getElementById("categoryModal");
+  const modalContent = document.getElementById("modalContent");
+
+  function openModal() {
+    modal.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+  }
+
+  modal.addEventListener("click", (e) => {
+    if (!modalContent.contains(e.target)) {
+      closeModal();
+    }
+  });
+</script>
+</body>
+</html>
