@@ -472,7 +472,7 @@
 </div>
 
 <aside id="sidebar"
-  class="fixed md:static top-0 left-0 h-full w-[85%] md:hidden p-4 bg-white border rounded-md shadow-md 
+  class="fixed md:static top-0 left-0 h-full w-[85%] md:hidden p-4 bg-white border rounded-md shadow-md overflow-y-auto
   transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
         <img src="connectlogo.png" class="w-28 mb-10" />
         <div class="space-y-3 uppercase">
@@ -634,7 +634,7 @@
         </div>
     </nav>
 
-    <section class="w-full md:px-12 mx-auto max-w-7xl py-12 flex flex-col lg:flex-row gap-8">
+    <section class="w-full md:px-12 mx-auto max-w-7xl py-12 flex flex-col lg:flex-row gap-8 p-4">
         <main class="flex-1 flex flex-col gap-10 md:w-[65%]">
 
             <!-- BILLING -->
@@ -806,7 +806,6 @@
         </aside>
     </section>
 
-    <!-- Overlay -->
 <div id="orderModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
 
   <!-- Modal Box -->
@@ -1016,5 +1015,94 @@
     this.classList.toggle("text-red-500");
   };
 </script>
+
+<script>
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  const openBtn = document.getElementById("openSidebar");
+
+  function openSidebar() {
+    sidebar.classList.remove("-translate-x-full");
+    overlay.classList.remove("opacity-0", "pointer-events-none");
+  }
+
+  function closeSidebar() {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("opacity-0", "pointer-events-none");
+  }
+
+  openBtn.addEventListener("click", openSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (window.innerWidth < 768) closeSidebar();
+    });
+  });
+</script>
+
+    <script>
+    function toggleMenu(el) {
+    if (window.innerWidth >= 768) return;
+
+    const parent = el.parentElement;
+    const submenu = parent.querySelector('.submenu');
+    const arrow = el.querySelector('.arrow');
+
+    const isOpen = submenu.classList.contains('open');
+
+    document.querySelectorAll('.submenu').forEach(menu => {
+        menu.classList.remove('open', 'opacity-100', 'visible', 'translate-y-0');
+        menu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+    });
+
+    document.querySelectorAll('.arrow').forEach(a => {
+        a.classList.remove('rotate-90');
+    });
+
+    if (!isOpen) {
+        submenu.classList.add('open', 'opacity-100', 'visible', 'translate-y-0');
+        submenu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+
+        arrow.classList.add('rotate-90');
+    }
+    }
+    </script>
+
+   <script>
+        const modal = document.getElementById("categoryModal");
+        const modalContent = document.getElementById("modalContent");
+
+        function openModal() {
+            modal.classList.remove("hidden");
+        }
+
+        function closeModal() {
+            modal.classList.add("hidden");
+        }
+
+        document.addEventListener("click", (e) => {
+        if (!modal.contains(e.target) && !e.target.closest("button")) {
+            closeModal();
+        }
+        });
+    </script>
+
+    <script>
+        const cartBtn = document.getElementById("cartBtn");
+        const cartDropdown = document.getElementById("cartDropdown");
+
+        cartBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            cartDropdown.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!cartDropdown.contains(e.target) && !cartBtn.contains(e.target)) {
+                cartDropdown.classList.add("hidden");
+            }
+        });
+    </script>
+
 </body>
 </html>

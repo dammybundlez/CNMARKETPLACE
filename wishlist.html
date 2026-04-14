@@ -932,6 +932,57 @@
         });
     </script>
 
-    
+    <script>
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  const openBtn = document.getElementById("openSidebar");
+
+  function openSidebar() {
+    sidebar.classList.remove("-translate-x-full");
+    overlay.classList.remove("opacity-0", "pointer-events-none");
+  }
+
+  function closeSidebar() {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("opacity-0", "pointer-events-none");
+  }
+
+  openBtn.addEventListener("click", openSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (window.innerWidth < 768) closeSidebar();
+    });
+  });
+</script>
+
+    <script>
+    function toggleMenu(el) {
+    if (window.innerWidth >= 768) return;
+
+    const parent = el.parentElement;
+    const submenu = parent.querySelector('.submenu');
+    const arrow = el.querySelector('.arrow');
+
+    const isOpen = submenu.classList.contains('open');
+
+    document.querySelectorAll('.submenu').forEach(menu => {
+        menu.classList.remove('open', 'opacity-100', 'visible', 'translate-y-0');
+        menu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+    });
+
+    document.querySelectorAll('.arrow').forEach(a => {
+        a.classList.remove('rotate-90');
+    });
+
+    if (!isOpen) {
+        submenu.classList.add('open', 'opacity-100', 'visible', 'translate-y-0');
+        submenu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+
+        arrow.classList.add('rotate-90');
+    }
+    }
+    </script>  
 </body>
 </html>
