@@ -472,7 +472,7 @@
 </div>
 
 <aside id="sidebar"
-  class="fixed md:static top-0 left-0 h-full w-[85%] md:hidden p-4 bg-white border rounded-md shadow-md 
+  class="fixed md:static top-0 left-0 h-screen overflow-y-auto w-[85%] md:hidden p-4 bg-white border rounded-md shadow-md 
   transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
         <img src="connectlogo.png" class="w-28 mb-10" />
         <div class="space-y-3 uppercase">
@@ -573,8 +573,9 @@
                 </li>
             </ul>
         </div>
+
         <ul class="space-y-1 mt-5 flex flex-col items-start">
-            <div class="flex justify-between items-center px-1">
+            <div class="flex justify-between items-center px-1 ">
                 <h3 class="text-base text-gray-700 font-medium">
                     OTHER
                 </h3>
@@ -639,8 +640,8 @@
         </div>
 
         <aside id="sidebar" class="fixed md:static top-0 left-0 h-full w-[85%] md:w-[30%] bg-white border rounded-md shadow-md transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-30">
-            <nav class="p-4 mt-20">
-                <div class="space-y-3 uppercase">
+            <nav class="p-4 ">
+                <div class="space-y-3 uppercase hidden">
                     <div class="flex justify-between items-center px-1">
                         <h3 class="text-base text-gray-700 font-medium">
                          All Categories
@@ -739,11 +740,6 @@
                     </ul>
                 </div>
                 <ul class="space-y-1 mt-5 flex flex-col items-start">
-                    <div class="flex justify-between items-center px-1">
-                        <h3 class="text-base text-gray-700 font-medium">
-                         OTHER
-                        </h3>
-                    </div>
                     <li><button data-tab="dashboard" class="tab-btn w-full uppercase px-4 py-2 text-sm text-gray-600 hover:bg-orange-400">Dashboard</button></li>
                     <li><button data-tab="orders" class="tab-btn w-full uppercase px-4 py-2 text-sm text-gray-600 hover:bg-orange-400">Order History</button></li>
                     <li><button data-tab="track" class="tab-btn w-full uppercase px-4 py-2 text-sm text-gray-600 hover:bg-orange-400">Track Order</button></li>
