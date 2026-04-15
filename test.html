@@ -3,167 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Featured Products</title>
-    <link rel="stylesheet" href="output.css">
+    <title>Product Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Archivo', sans-serif;
+        }
+        .font-public {
+            font-family: 'Public Sans', sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-white">
+<body class="bg-gray-50 p-4 md:p-8">
+    
+    <!-- Trigger button (example) -->
+<button onclick="openModal()" class="px-4 h-10 bg-green-600 text-white rounded-md text-sm font-semibold">
+  Add Category
+</button>
 
-    <button onclick="openModal()" class="px-4 py-2 bg-orange-400 text-white rounded">
-    Browse Categories
-    </button>
+<!-- Overlay -->
+<div id="modalOverlay"
+     class="fixed inset-0 bg-black/40 flex items-center justify-center p-4 opacity-0 invisible transition-opacity duration-200">
 
+  <!-- Modal -->
+  <div id="modalBox"
+       class="w-full max-w-md bg-white rounded-xl shadow-lg p-6 flex flex-col gap-6
+              scale-95 opacity-0 transition-all duration-200">
 
-    <div id="categoryModal" class="absolute inset-0 hidden items-start justify-center z-50">
-        <div class="absolute inset-0 "></div>
-        <div id="modalContent" class="relative inline-block">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+      <h2 class="text-xl font-bold text-gray-900">Add New Category</h2>
 
-        <!-- MAIN MENU -->
-        <div class="w-60 bg-white rounded shadow-lg border relative">
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            Computer & Laptop
-            </div>
-
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            Computer accessories
-            </div>
-
-            <div class=" group space-x-2">
-            <div 
-                onclick="toggleMenu(this)"
-                class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
-
-                <div class="flex items-center gap-2">
-                SmartPhone
-                </div>
-
-                <!-- ARROW -->
-                <span class="arrow transition-transform duration-300">
-                ▶
-                </span>
-            </div>
-
-                <div class="submenu absolute left-0 md:left-full top-0 md:top-0 
-                            w-full md:w-[800px] bg-white rounded shadow-[0px_8px_40px_rgba(0,0,0,0.12)] border
-                            opacity-0 invisible translate-y-2 md:translate-y-0 md:translate-x-4
-                            md:group-hover:opacity-100 md:group-hover:visible md:group-hover:translate-x-0
-                            transition-all duration-300 ease-out z-50">
-
-                <nav class="p-5 flex flex-col md:flex-row gap-5">
-
-                    <!-- LEFT: BRANDS -->
-                    <ul class="w-40 flex flex-col">
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">All</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm bg-gray-100 font-medium text-zinc-900">iPhone</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Samsung</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Realme</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Xiaomi</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Oppo</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Vivo</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">OnePlus</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Huawei</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Infinix</button></li>
-                        <li><button class="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-100">Tecno</button></li>
-                    </ul>
-
-                    <!-- MIDDLE: FEATURED -->
-                    <div class="flex flex-col gap-4">
-                    <h3 class="text-base font-semibold text-zinc-900">FEATURED PHONES</h3>
-
-                    <!-- PRODUCT -->
-                    <div class="flex items-center gap-3 p-3 border rounded hover:shadow-sm cursor-pointer">
-                        <img class="w-20 h-20" src="images/Image-28.png" />
-                        <div>
-                        <p class="text-sm text-zinc-900">Samsung Galaxy S21 5G</p>
-                        <span class="text-green-600 text-sm font-semibold">₦700,300</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-3 p-3 border rounded hover:shadow-sm cursor-pointer">
-                        <img class="w-20 h-20" src="images/Image-33.png" />
-                        <div>
-                        <p class="text-sm text-zinc-900">Galaxy 12 Mini 512GB</p>
-                        <span class="text-green-600 text-sm font-semibold">₦700,300</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-3 p-3 border rounded hover:shadow-sm cursor-pointer">
-                        <img class="w-20 h-20" src="images/Image-43.png" />
-                        <div>
-                        <p class="text-sm text-zinc-900">Sony DSCHX8 Camera</p>
-                        <span class="text-green-600 text-sm font-semibold">₦700,300</span>
-                        </div>
-                    </div>
-                    </div>
-
-                    <!-- RIGHT: PROMO -->
-                    <aside class="bg-amber-200 rounded p-6 flex flex-col items-center text-center gap-4">
-                    <img class="w-40" src="images/Image-13.png" />
-
-                    <h4 class="text-2xl font-semibold">21% Discount</h4>
-                    <p class="text-sm text-gray-600">
-                        Escape the noise, It’s time to hear the magic with Xiaomi Earbuds.
-                    </p>
-
-                    <div class="flex items-center gap-2 text-sm">
-                        <span class="text-gray-600">Starting price:</span>
-                        <span class="bg-white px-3 py-1 rounded font-semibold">₦136,921.95</span>
-                    </div>
-
-                    <button class="w-full bg-orange-400 text-white py-2 rounded text-sm font-bold uppercase">
-                        Shop now →
-                    </button>
-                    </aside>
-
-                </nav>
-                </div>
-            </div>
-
-            
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            Mobile Accessories
-            </div>
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            Gaming Console
-            </div>
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            Camera & Photo
-            </div>
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            TV & Home Appliances
-            </div>
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            Watch & Accessories
-            </div>
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            GPS & Navigation
-            </div>
-            
-            <div class="px-4 py-2 flex items-center gap-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-            Wearable Technology
-            </div>
-
-        </div>
-        </div>
+      <button onclick="closeModal()" class="text-gray-500 hover:text-black text-xl">
+        ✕
+      </button>
     </div>
 
+    <!-- Inputs -->
+    <div class="flex flex-col gap-4">
+
+      <input
+        type="text"
+        placeholder="Category name"
+        class="w-full px-3.5 py-2.5 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+      />
+
+      <textarea
+        rows="3"
+        placeholder="Description (optional)"
+        class="w-full px-3.5 py-2.5 border border-gray-200 rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-green-500"
+      ></textarea>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="flex justify-end gap-2">
+
+      <button onclick="closeModal()"
+        class="px-4 h-10 border border-gray-300 rounded-md text-sm font-semibold hover:bg-gray-50">
+        Cancel
+      </button>
+
+      <button class="px-5 h-10 bg-green-600 text-white rounded-md text-sm font-semibold hover:bg-green-700">
+        Save
+      </button>
+
+    </div>
+
+  </div>
+</div>
 
 <script>
-  const modal = document.getElementById("categoryModal");
-  const modalContent = document.getElementById("modalContent");
+  const overlay = document.getElementById("modalOverlay");
+  const modal = document.getElementById("modalBox");
 
   function openModal() {
-    modal.classList.remove("hidden");
+    overlay.classList.remove("opacity-0", "invisible");
+    modal.classList.remove("scale-95", "opacity-0");
+
+    overlay.classList.add("opacity-100", "visible");
+    modal.classList.add("scale-100", "opacity-100");
   }
 
   function closeModal() {
-    modal.classList.add("hidden");
+    overlay.classList.add("opacity-0");
+    modal.classList.add("scale-95", "opacity-0");
+
+    setTimeout(() => {
+      overlay.classList.add("invisible");
+    }, 200);
   }
 
-  modal.addEventListener("click", (e) => {
-    if (!modalContent.contains(e.target)) {
+  // Click outside to close
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
       closeModal();
     }
   });
+
+  // ESC key close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 </script>
+
 </body>
 </html>

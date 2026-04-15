@@ -17,3 +17,21 @@ body {
     -ms-overflow-style: none; 
     scrollbar-width: none; 
 }
+
+  .toggle {
+    width: 44px;
+    height: 24px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .dot {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+  }
